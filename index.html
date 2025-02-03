@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
   <meta name="format-detection" content="telephone=no"><!-- 아이폰에서 일반숫자나, Datetime 등의 타입 전화번호 인식 방지 -->
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title>TEST</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="./reset.css">
@@ -146,7 +147,7 @@
   </a>
   <p class="txt_ask">틀린정보나 문의사항이 있으면 <a href="mailto:jude.sh@daum.net">jude.sh@daum.net</a> 으로 연락 주세요.</p>
   
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=89b0a44e1f81d77a4103cc826a62c52f"></script>
+  <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=89b0a44e1f81d77a4103cc826a62c52f"></script>
   <script>
     navigator.geolocation.getCurrentPosition((position) => {
         const lat = position.coords.latitude;  // 위도
@@ -156,13 +157,14 @@
 
         const road_address = document.querySelector('#road_address')
         const address = document.querySelector('#address')
-        const url = `//dapi.kakao.com/v2/local/geo/coord2address.json?x=${lng}&y=${lat}`;
+        const url = `https://dapi.kakao.com/v2/local/geo/coord2address.json?x=${lng}&y=${lat}`;
 
         fetch(url, {
           method: 'GET',
           headers: {
             'Authorization': 'KakaoAK 49fe230c6fcd8c55afb8200126317160'
-          }
+          },
+          mode: 'cors'
         })
           .then(response => response.json())
           .then(data => {

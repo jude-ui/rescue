@@ -151,7 +151,7 @@
     navigator.geolocation.getCurrentPosition((position) => {
         const lat = position.coords.latitude;  // 위도
         const lng = position.coords.longitude; // 경도
-        
+        altert(lat, lng)
         mapRender(lat, lng)
 
         const road_address = document.querySelector('#road_address')

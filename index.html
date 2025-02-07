@@ -13,7 +13,8 @@
     body{padding:16px}
     .tc{text-align: center}
     .tit_load{margin-bottom: 5px;font-size: 20px;line-height: 25px;color:#000}
-    #map{height: 400px;margin-bottom: 20px;border:1px solid #ddd}
+    .wrap_map{position: relative;margin-bottom: 10px;aspect-ratio: 16/12}
+    #map{position: absolute;top:0;left: 0;width: 100%;height: 100%;border:1px solid #ddd}
     .txt_address{margin:5px 0;font-size: 18px;line-height: 23px;color:#000}
     .tit{display: block;font-size: 18px;line-height: 23px;color:#000}
     .tit ~ .tit{padding-top: 20px}
@@ -24,7 +25,7 @@
     .list_road span{font-size: 0.8em}
     
     .tbl_comm{width:100%;max-width: 400px;margin-top: 5px;border-collapse: collapse;border-spacing: 0;table-layout: fixed}
-    .tbl_comm th, .tbl_comm td{height: 30px;padding:5px 8px 4px;border-top: 1px solid #ddd;border-right: 1px solid #ddd;font-size: 14px;line-height: 17px;color:#000;word-break: keep-all}
+    .tbl_comm th, .tbl_comm td{height: 24px;padding:5px 8px 4px;border-top: 1px solid #ddd;border-right: 1px solid #ddd;font-size: 14px;line-height: 17px;color:#000;word-break: keep-all}
     .tbl_comm td:last-child{border-right: 0}
     .tbl_comm tr:last-child th, .tbl_comm tr:last-child td{border-bottom: 1px solid #ddd}
 
@@ -35,14 +36,28 @@
     .link_env{display: inline-block;margin-top: 20px;padding:5px 0;font-size: 12px;line-height: 15px;color:#333;vertical-align: top;text-decoration: underline;word-break: keep-all;text-underline-offset: 2px}
     .txt_ask{margin:5px 0 50px;font-size: 12px;line-height: 15px;color:#333;word-break: keep-all}
     .txt_ask a{font-weight: 700}
+    .txt_caution{display: block;padding-bottom: 10px;font-weight: 700;font-size: 12px;line-height: 15px;color:#2532c2;background-color: #fff;}
+    .info_marker{min-height: 23px;padding:4px 7px;white-space: nowrap;box-sizing: border-box}
+    .info_marker .address{font-size: 12px;line-height: 15px;color:#000}
+    .info_marker .address:only-child{line-height: 19px}
+
+    @media only screen and (min-width: 1024px) {
+      .wrap_map{aspect-ratio: auto;height:400px}
+    }
   </style>
 </head>
 <body>
   <h1 class="tit_load">동물 로드킬 신고하기</h1>
-  <div id="map"></div>
+  <div class="wrap_map">
+    <div id="map"></div>
+  </div>
+
+  <div class="txt_caution">
+    위치 설정을 허용하지 않으면 지도가 출력되지 않을 수 있습니다.<br>
+    현재 기기의 GPS를 활성화 해주세요.
+  </div>
+  
   <strong class="tit"># 현재 위치</strong>
-  <!-- <h2 id="road_address" class="txt_address">도로명 주소 : <span>...</span></h2> -->
-  <!-- <h2 id="address" class="txt_address">지번 주소 : <span>...</h2> -->
 
   <table class="tbl_comm">
     <caption class="ir_caption">동물 보호센터</caption>
@@ -147,18 +162,16 @@
   </a>
   <p class="txt_ask">틀린정보나 문의사항이 있으면 <a href="mailto:jude.sh@daum.net">jude.sh@daum.net</a> 으로 연락 주세요.</p>
   
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=89b0a44e1f81d77a4103cc826a62c52f"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=89b0a44e1f81d77a4103cc826a62c52f&&libraries=services"></script>
   <script>
     navigator.geolocation.getCurrentPosition((position) => {
-      const lat = position.coords.latitude;  // 위도
-      const lng = position.coords.longitude; // 경도
-      
-      mapRender(lat, lng)
-
+        const lat = position.coords.latitude;  // 위도
+        const lng = position.coords.longitude; // 경도
         const road_address = document.querySelector('#road_address')
         const address = document.querySelector('#address')
         const url = `//dapi.kakao.com/v2/local/geo/coord2address.json?x=${lng}&y=${lat}`;
-
+      
+        mapRender(lat, lng, road_address, address)
         fetch(url, {
           method: 'GET',
           headers: {
@@ -191,52 +204,71 @@
     );
     
 
-    function mapRender(lat, lng) {
+    function mapRender(lat, lng, road_address, address) {
       const markerPosition = new kakao.maps.LatLng(lat, lng)
-
       const mapContainer = document.getElementById('map') // 지도를 표시할 div 
+
+      var geocoder = new kakao.maps.services.Geocoder(); // 주소-좌표 변환 객체를 생성합니다
+      
+      var infowindow = new kakao.maps.InfoWindow({zindex:1}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
+      
 
       const mapOption = { 
         center: markerPosition, // 지도의 중심좌표
         level: 3, // 지도의 확대 레벨
       };
       const map = new kakao.maps.Map(mapContainer, mapOption) // 지도를 생성합니다
-      // 지도 세팅
-      // map.setMinLevel(4); // 최대 확대 가능 레벨 설정
-      // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성 및 위치 설정
-      const mapTypeControl = new kakao.maps.MapTypeControl()
-      map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT)
-
-      // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성 및 위치 설정
-      const zoomControl = new kakao.maps.ZoomControl()
-      map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT)
 
       const marker = new kakao.maps.Marker({
         position: markerPosition
       })
       marker.setMap(map);
 
+      // 지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
+      kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+        searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
+          if (status === kakao.maps.services.Status.OK) {
+            var detailAddr = !!result[0].road_address ? `<div class="address">도로명주소 : ${result[0].road_address.address_name}</div>` : '';
+            detailAddr += `<div class="address">지번 주소 : ${result[0].address.address_name}</div>`;
+            
+            var content = `<div class="info_marker">
+                            ${detailAddr}
+                          </div>`;
 
+            // 마커를 클릭한 위치에 표시합니다 
+            marker.setPosition(mouseEvent.latLng);
+            marker.setMap(map);
 
+            // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
+            infowindow.setContent(content);
+            infowindow.open(map, marker);
 
-      // // 이미지 지도에서 마커가 표시될 위치입니다 
-      // var markerPosition  = new kakao.maps.LatLng(lat, lng); 
+            if(result[0].road_address){
+              road_address.innerHTML = result[0].road_address.address_name
+            } else {
+              road_address.innerHTML = '없음'
+            }
+            if(result[0].address){
+              address.innerHTML = result[0].address.address_name
+            }
+          }   
+        });
+      });
 
-      // // 이미지 지도에 표시할 마커입니다
-      // // 이미지 지도에 표시할 마커는 Object 형태입니다
-      // var marker = {
-      //     position: markerPosition
-      // };
+      function searchDetailAddrFromCoords(coords, callback) {
+        // 좌표로 법정동 상세 주소 정보를 요청합니다
+        geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
+      }
 
-      // var staticMapContainer  = document.getElementById('map'), // 이미지 지도를 표시할 div  
-      //     staticMapOption = { 
-      //         center: new kakao.maps.LatLng(lat, lng), // 이미지 지도의 중심좌표
-      //         level: 3, // 이미지 지도의 확대 레벨
-      //         marker: marker // 이미지 지도에 표시할 마커 
-      //     };    
+      // 지도 세팅
+      // map.setMinLevel(4); // 최대 확대 가능 레벨 설정
+      // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성 및 위치 설정
+      // const mapTypeControl = new kakao.maps.MapTypeControl()
+      // map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT)
 
-      // // 이미지 지도를 생성합니다
-      // var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
+      // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성 및 위치 설정
+      // const zoomControl = new kakao.maps.ZoomControl()
+      // map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT)
     }
   </script>
 </body>

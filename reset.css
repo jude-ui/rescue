@@ -16,7 +16,7 @@ input[type='date']{-webkit-appearance:none;appearance:none;background:#fff}
 input[type='date']::-webkit-date-and-time-value{text-align:left}
 input[type='date']::before{width:100%;content:attr(data-placeholder);color:rgba(36,36,36,.38)}
 input[type='date'][value]::before,input[type='date']:focus::before,input[type='date']:valid::before{content:normal}
-body,th,td,input,select,textarea,button{font-size:12px;line-height:1.5;font-family:'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', sans-serif;color:#333}
+body,th,td,input,select,textarea,button{font-size:12px;line-height:1.5;font-family:system-ui, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', sans-serif;color:#333}
 a{color:#333;text-decoration:none}
 a:active, a:hover{text-decoration:none}
 a:active{background-color:transparent}

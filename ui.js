@@ -2,14 +2,22 @@
 
 document.querySelector(".btn_url").addEventListener("click", function () {
     const url = this.getAttribute("data-url"); // data-url 값 가져오기
-    const textarea = document.createElement("textarea");
-    textarea.value = url;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand("copy");
-    document.body.removeChild(textarea);
-    
-    alert("URL이 복사되었습니다.");
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(() => {
+        alert("URL이 복사되었습니다.");
+      }).catch(err => {
+        alert("URL 복사를 실패했습니다. 다시 시도해 주세요.");
+        console.error('복사 실패 : ', err)
+      });
+    } else {
+      const textarea = document.createElement("textarea");
+      textarea.value = url;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      alert("URL이 복사되었습니다.");
+    }
 });
 
 document.querySelectorAll('.txt_info a').forEach(link => {

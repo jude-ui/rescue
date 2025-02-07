@@ -1,5 +1,19 @@
 "use strict";
 
+document.querySelectorAll('.txt_info a').forEach(link => {
+  link.addEventListener('click', function(e) {
+      e.preventDefault(); // 기본 이벤트 방지
+
+      // 이동할 대상 ID 가져오기
+      const targetId = this.getAttribute('href')
+      const targetElement = document.getElementById(targetId);
+      console.log(targetId, targetElement);
+
+      // 해당 섹션으로 부드럽게 스크롤
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
 navigator.geolocation.getCurrentPosition((position) => {
     const lat = position.coords.latitude;  // 위도
     const lng = position.coords.longitude; // 경도

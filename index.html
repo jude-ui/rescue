@@ -48,7 +48,7 @@
     .tc{text-align: center}
     .tit_load{margin-bottom: 5px;font-size: 20px;line-height: 25px;color:#000}
     .wrap_map{position: relative;margin-bottom: 10px;aspect-ratio: 16/12}
-    #map{position: absolute;top:0;left: 0;width: 100%;height: 100%;border:1px solid #ddd}
+    #map{position: absolute;top:0;left: 0;width: 100%;height: 100%;border:1px solid #ddd;box-sizing: border-box}
     .txt_address{margin:5px 0;font-size: 18px;line-height: 23px;color:#000}
     .tit{display: block;font-size: 18px;line-height: 23px;color:#000}
     .tit ~ .tit{padding-top: 20px}
@@ -67,13 +67,17 @@
     .tbl_comm td{font-size: 14px;color:#000}
     .tbl_comm a{font-weight: 700;color:#0d7b29;text-decoration: underline;text-underline-offset: 2px}
 
-    .link_env{display: inline-block;margin-top: 20px;padding:5px 0;font-size: 12px;line-height: 15px;color:#333;vertical-align: top;text-decoration: underline;word-break: keep-all;text-underline-offset: 2px}
-    .txt_ask{margin:5px 0 50px;font-size: 12px;line-height: 15px;color:#333;word-break: keep-all}
+    .link_env{display: inline-block;padding:5px 0;font-size: 12px;line-height: 15px;color:#333;vertical-align: top;text-decoration: underline;word-break: keep-all;text-underline-offset: 2px}
+    .txt_ask{margin:40px 0 50px;font-size: 12px;line-height: 15px;color:#333;word-break: keep-all}
     .txt_ask a{font-weight: 700}
-    .txt_caution{display: block;padding-bottom: 10px;font-weight: 700;font-size: 12px;line-height: 15px;color:#2532c2;background-color: #fff;}
+    .txt_caution{display: block;font-weight: 700;font-size: 12px;line-height: 15px;color:#d02222;background-color: #fff;}
+    .txt_info{padding: 2px 0 10px}
+    .txt_info a{font-weight: 700;font-size: 12px;line-height: 13px;color:royalblue;text-decoration: underline;text-underline-offset: 2px}
     .info_marker{min-height: 23px;padding:4px 7px;white-space: nowrap;box-sizing: border-box}
     .info_marker .address{font-size: 12px;line-height: 15px;color:#000}
     .info_marker .address:only-child{line-height: 19px}
+    .txt_desc{padding-top: 4px;font-size: 14px;line-height: 19px;color:#1a1a1a}
+    .txt_gt{font-weight: 700;color:red}
 
     @media only screen and (min-width: 1024px) {
       .wrap_map{aspect-ratio: auto;height:400px}
@@ -88,7 +92,10 @@
 
   <div class="txt_caution">
     위치 설정을 허용하지 않으면 지도가 출력되지 않을 수 있습니다.<br>
-    현재 기기의 GPS를 활성화 해주세요.
+    현재 사용하는 앱의 GPS를 활성화 해주세요.
+  </div>
+  <div class="txt_info">
+    <a href="ios"># IOS 위치 설정</a> / <a href="android"># 안드로이드 위치 설정</a>
   </div>
   
   <strong class="tit"># 현재 위치</strong>
@@ -116,6 +123,7 @@
     <li>
       <strong>1. 고속도로일 경우</strong><br>
       <a href="tel:1588-2504">1588-2504</a>
+      <span>(한국도로공사)</span>
     </li>
     <li>
       <strong>2. 국도나 지방도로일 경우</strong><br>
@@ -195,6 +203,18 @@
     환경부 전국 야생동물 구조관리센터 지정현황<br>
     (2023년 기준 PC에서 접속 가능)
   </a>
+
+  <strong id="ios" class="tit"># IOS 위치 설정</strong>
+  <div class="txt_desc" style="padding-top: 4px">
+    설정 <span class="txt_gt">&gt;</span> 개인정보 보호 및 보안 <span class="txt_gt">&gt;</span> 위치 서비스 <span class="txt_gt">&gt;</span> [해당 앱(카카오톡 or 카카오워크 등)] <span class="txt_gt">&gt;</span> &lsquo;앱을 사용하는 동안&rsquo;, &lsquo;정확한 위치 사용&rsquo; 선택
+  </div>
+
+  <strong id="android" class="tit"># 안드로이드 위치 설정</strong>
+  <div class="txt_desc" style="padding-top: 4px">
+    설정 <span class="txt_gt">&gt;</span> 위치 <span class="txt_gt">&gt;</span> 앱 권한 <span class="txt_gt">&gt;</span> [해당 앱(카카오톡 or 카카오워크 등)] <span class="txt_gt">&gt;</span> &lsquo;앱 사용중에만 허용&rsquo;, &lsquo;정확한 위치 사용&rsquo; 선택
+  </div>
+
+
   <p class="txt_ask">틀린정보나 문의사항이 있으면 <a href="mailto:jude.sh@daum.net">jude.sh@daum.net</a> 으로 연락 주세요.</p>
   
   <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=89b0a44e1f81d77a4103cc826a62c52f&&libraries=services"></script>

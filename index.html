@@ -150,6 +150,14 @@
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=89b0a44e1f81d77a4103cc826a62c52f"></script>
   <script>
     mapRender(35.1529021, 126.9195196)
+    // iOS 카카오톡 웹뷰에서 위치 정보 요청 허용
+    if (navigator.permissions) {
+      navigator.permissions.query({ name: "geolocation" }).then((result) => {
+        if (result.state === "denied") {
+          alert("위치 정보를 사용할 수 없습니다. 카카오톡 브라우저에서 사파리로 열어보세요.");
+        }
+      });
+    }
     navigator.geolocation.getCurrentPosition((position) => {
       const lat = position.coords.latitude;  // 위도
       const lng = position.coords.longitude; // 경도

@@ -158,7 +158,7 @@
         }
       });
     }
-    navigator.geolocation.getCurrentPosition((position) => {
+    navigator.geolocation.watchPosition((position) => {
       const lat = position.coords.latitude;  // 위도
       const lng = position.coords.longitude; // 경도
       

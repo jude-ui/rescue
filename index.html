@@ -149,38 +149,24 @@
   
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=89b0a44e1f81d77a4103cc826a62c52f"></script>
   <script>
-    mapRender(35.1529021, 126.9195196)
-    // iOS 카카오톡 웹뷰에서 위치 정보 요청 허용
-    if (navigator.permissions) {
-      navigator.permissions.query({ name: "geolocation" }).then((result) => {
-        if (result.state === "denied") {
-          alert("위치 정보를 사용할 수 없습니다. 카카오톡 브라우저에서 사파리로 열어보세요.");
-        }
-      });
-    }
-    navigator.geolocation.watchPosition((position) => {
+    navigator.geolocation.getCurrentPosition((position) => {
       const lat = position.coords.latitude;  // 위도
       const lng = position.coords.longitude; // 경도
       
-      // mapRender(lat, lng)
+      mapRender(lat, lng)
 
         const road_address = document.querySelector('#road_address')
         const address = document.querySelector('#address')
-        alert(lat);
-        alert(lng);
-        /*const url = `//dapi.kakao.com/v2/local/geo/coord2address.json?x=${lng}&y=${lat}`;
+        const url = `//dapi.kakao.com/v2/local/geo/coord2address.json?x=${lng}&y=${lat}`;
 
         fetch(url, {
           method: 'GET',
           headers: {
             'Authorization': 'KakaoAK 49fe230c6fcd8c55afb8200126317160'
           },
-          // mode: 'cors'
         })
         .then(response => response.json())
         .then(data => {
-          // console.log(data.documents[0]);
-
           if(data.documents[0].road_address){
             road_address.innerHTML = data.documents[0].road_address.address_name
           } else {
@@ -192,7 +178,7 @@
         })
         .catch(error => {
           console.log(error);
-        });*/
+        });
       },
       (error) => {
         alert("위치 정보를 가져올 수 없습니다, 새로고침 해 주세요.", error);

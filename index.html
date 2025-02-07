@@ -77,7 +77,11 @@
     .info_marker .address{font-size: 12px;line-height: 15px;color:#000}
     .info_marker .address:only-child{line-height: 19px}
     .txt_desc{padding-top: 4px;font-size: 14px;line-height: 19px;color:#1a1a1a}
+    .txt_desc .txt{display: block}
+    .txt_desc .txt ~ .txt{padding-top: 15px}
     .txt_gt{font-weight: 700;color:red}
+    .txt_more{margin-top: 5px;padding-bottom: 5px;font-size: 12px;line-height: 15px;color:#777}
+    .btn_url{padding:4px 10px;border-radius: 5px;font-size: 12px;line-height: 17px;color:#fff;background-color: #4561b8}
 
     @media only screen and (min-width: 1024px) {
       .wrap_map{aspect-ratio: auto;height:400px}
@@ -86,6 +90,7 @@
 </head>
 <body>
   <h1 class="tit_load">동물 로드킬 신고하기</h1>
+  <div class="txt_more">지도상 클릭한 곳의 주소를 확인할 수 있습니다.<br>건물이 아닌 곳은 도로명 주소가 나오지 않고 지번주소만 나옵니다.</div>
   <div class="wrap_map">
     <div id="map"></div>
   </div>
@@ -212,6 +217,26 @@
   <strong id="android" class="tit"># 안드로이드 위치 설정</strong>
   <div class="txt_desc">
     설정 <span class="txt_gt">&gt;</span> 위치 <span class="txt_gt">&gt;</span> 앱 권한 <span class="txt_gt">&gt;</span> [해당 앱(카카오톡 or 카카오워크 등)] <span class="txt_gt">&gt;</span> &lsquo;앱 사용중에만 허용&rsquo;, &lsquo;정확한 위치 사용&rsquo; 선택
+  </div>
+
+  <strong class="tit"># 모바일 홈화면에 바로가기 아이콘 만들기</strong>
+  <p class="txt_more">차에서 위치를 놓치지 않도록 홈 화면에 아이콘을 추가해 보세요.</p>
+  <div class="txt_desc">
+    <strong class="txt">- IOS 사파리</strong>
+    하단 공유하기 버튼 <span class="txt_gt">&gt;</span> 홈 화면에 추가
+
+    <strong class="txt">- 안드로이드 삼성인터넷</strong>
+    우측 하단 더보기 메뉴 <span class="txt_gt">&gt;</span> 현재 페이지에 추가 <span class="txt_gt">&gt;</span> 홈 화면
+
+    <strong class="txt">- 네이버 앱</strong>
+    우측 하단 더보기 메뉴 <span class="txt_gt">&gt;</span> 홈 화면에 추가
+
+    <strong class="txt">- 크롬 브라우저</strong>
+    우측 상단 더보기 메뉴(... 아이콘) <span class="txt_gt">&gt;</span> 홈 화면에 추가
+
+    <strong class="txt" style="color:orangered"># 홈 화면에 추가 버튼이 안보일 경우</strong>
+    <p class="txt_more">아래 버튼을 클릭하여 <strong>주소를 복사</strong>한 뒤, <strong>IOS의 사파리</strong> 또는 <strong>삼성인터넷에</strong> 주소를 붙여넣어서 위에 설명된 방법으로 홈 화면에 추가해 주세요.</p>
+    <button type="button" class="btn_url" data-url="https://jude-ui.github.io/rescue/">URL 복사</button>
   </div>
 
 

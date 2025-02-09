@@ -5,7 +5,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
   <meta name="format-detection" content="telephone=no"><!-- 아이폰에서 일반숫자나, Datetime 등의 타입 전화번호 인식 방지 -->
+  <meta name="robots" content="index, follow"><!-- 검색 엔진 로봇에게 페이지를 인덱싱하고 링크를 따라가도록 지시합니다. -->
+
+  <link rel="shortcut icon" href="./images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="./images/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="./images/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="./images/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="./images/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="./images/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="./images/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="./images/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="./images/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="./images/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="야생동물 로드킬 신고" /><!-- 속한 사이트의 이름 -->
+  <meta property="og:title" content="야생동물 로드킬 신고" /><!-- 페이지의 이름(제목) -->
+  <meta property="og:description" content="빠른 로드킬 신고를 위한 정보를 모아둔 페이지 입니다." /><!-- 페이지의 간단한 설명 -->
+  <meta property="og:image" content="./images/apple-icon-180x180.png" /><!-- 페이지의 대표 이미지 경로 -->
+  <meta property="og:url" content="https://jude-ui.github.io/rescue/" /><!-- 페이지 주소(URL) -->
+
+  <meta property="twitter:card" content="summary" /><!-- 페이지(카드)의 유형(E.g. summary, player) -->
+  <meta property="twitter:title" content="야생동물 로드킬 신고" /><!-- 페이지의 이름(제목) -->
+  <meta property="twitter:description" content="빠른 로드킬 신고를 위한 정보를 모아둔 페이지 입니다." /><!-- 페이지의 간단한 설명 -->
+  <meta property="twitter:image" content="./images/apple-icon-180x180.png" /><!-- 페이지의 대표 이미지 주소(URL) -->
+  <meta property="twitter:url" content="https://jude-ui.github.io/rescue/" /><!-- 페이지 주소(URL) -->
+  
   <title>야생동물 로드킬 신고하기</title>
+  
   <style>
     /* rw reset */
     body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0}
@@ -33,16 +65,7 @@
     main{display:block}
 
     /* global */
-    .direct-link{position:absolute;top:-1px;left:0;z-index:9999;height:1px} /* 바로가기 */
-    .direct-link a{position:absolute;top:-999px;padding:5px 10px;font-weight:bold;color:#fff;background:#333;text-decoration:none;white-space:nowrap}
-    .direct-link a:focus{top:0}
-    .ir_pm{display:block;overflow:hidden;font-size:1px;line-height:0;color:transparent}
-    .ir_wa{display:block;overflow:hidden;position:relative;z-index:-1;width:100%;height:100%}
-    .ir_caption{overflow:hidden;width:1px;font-size:1px;line-height:0;text-indent:-9999px}
-    .screen_out{overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px}
     .blind{position:absolute;clip-path:rect(0 0 0 0);width:1px;height:1px;margin:-1px;overflow:hidden}
-    .show{display:block}
-    .hide{display:none}
 
     body{padding:16px}
     .tc{text-align: center}
@@ -57,16 +80,14 @@
     .list_road li + li{padding-top: 10px}
     .list_road a{font-weight: 700;color:#325ee4;text-decoration: underline}
     .list_road span{font-size: 0.8em}
-    
     .tbl_comm{width:100%;max-width: 400px;margin-top: 5px;border-collapse: collapse;border-spacing: 0;table-layout: fixed}
-    .tbl_comm th, .tbl_comm td{height: 24px;padding:5px 8px 4px;border-top: 1px solid #ddd;border-right: 1px solid #ddd;font-size: 14px;line-height: 17px;color:#000;word-break: keep-all}
+    .tbl_comm th, .tbl_comm td{height: 24px;padding:5px 8px 4px;border-top: 1px solid #ddd;border-right: 1px solid #ddd;font-size: 12px;line-height: 17px;color:#000;word-break: keep-all}
     .tbl_comm td:last-child{border-right: 0}
     .tbl_comm tr:last-child th, .tbl_comm tr:last-child td{border-bottom: 1px solid #ddd}
-
     .tbl_comm th{background-color: #fafafa}
-    .tbl_comm td{font-size: 14px;color:#000}
+    /* .tbl_comm td{font-size: 14px;color:#000} */
     .tbl_comm a{font-weight: 700;color:#0d7b29;text-decoration: underline;text-underline-offset: 2px}
-
+    .tbl_comm .info{height: auto;min-height:18px;font-size: 10px;line-height: 13px;color:#333;letter-spacing: -0.03em}
     .link_env{display: inline-block;padding:5px 0;font-size: 12px;line-height: 15px;color:#333;vertical-align: top;text-decoration: underline;word-break: keep-all;text-underline-offset: 2px}
     .txt_ask{margin:40px 0 50px;font-size: 12px;line-height: 15px;color:#333;word-break: keep-all}
     .txt_ask a{font-weight: 700}
@@ -91,7 +112,7 @@
 </head>
 <body>
   <h1 class="tit_load">동물 로드킬 신고하기</h1>
-  <div class="txt_more">지도상 클릭한 곳의 주소를 확인할 수 있습니다.<br>건물이 아닌 곳은 도로명 주소가 나오지 않고 지번주소만 나옵니다.</div>
+  <p class="txt_more">지도상 클릭한 곳의 주소를 확인할 수 있습니다.<br>건물이 아닌 곳은 도로명 주소가 나오지 않고 지번주소만 나옵니다.</p>
   <div class="wrap_map">
     <div id="map"></div>
   </div>
@@ -107,7 +128,7 @@
   <strong class="tit"># 현재 위치</strong>
 
   <table class="tbl_comm">
-    <caption class="ir_caption">동물 보호센터</caption>
+    <caption class="blind">현재 위치에 대한 주소 정보 표</caption>
     <colgroup>
       <col style="width:25%">
       <col>
@@ -139,62 +160,127 @@
   </ol>
 
   <strong class="tit"># 동물이 살아 있어서 구조가 필요할 시</strong>
+  <p class="txt_more">환경부 지정 전국 야생동물 구조관리센터</p>
   <table class="tbl_comm">
-    <caption class="ir_caption">야생동물 구조관리센터</caption>
+    <caption class="blind">환경부 지정 야생동물 구조관리센터</caption>
     <colgroup>
-      <col style="width:15%">
+      <col style="width:46px">
       <col>
-      <col style="width:15%">
+      <col style="width:46px">
       <col>
     </colgroup>
     <tbody>
       <tr>
-        <th scope="row">서울</th>
-        <td><a href="tel:02-880-8659">02-880-8659</a></td>
-        <th scope="row">경기</th>
-        <td><a href="tel:031-8008-6212">031-8008-6212</a></td>
+        <th scope="row" rowspan="2">서울</th>
+        <td>
+          <a href="tel:02-880-8659">02-880-8659</a>
+        </td>
+        <th scope="row" rowspan="2">경기</th>
+        <td>
+          <a href="tel:031-8008-6212">031-8008-6212</a>
+        </td>
       </tr>
       <tr>
-        <th scope="row">인천</th>
-        <td><a href="tel:032-858-9702">032-858-9702</a></td>
-        <th scope="row">경기 북부</th>
-        <td><a href="tel:031-8030-4451">031-8030-4451</a></td>
+        <td class="info">서울대학교 수의과대학</td>
+        <td class="info">경기도 동물보호과</td>
       </tr>
       <tr>
-        <th scope="row">부산</th>
-        <td><a href="tel:051-209-2091">051-209-2091</a></td>
-        <th scope="row">광주</th>
-        <td><a href="tel:062-613-6651">062-613-6651</a></td>
+        <th scope="row" rowspan="2">인천</th>
+        <td>
+          <a href="tel:032-858-9702">032-858-9702</a>
+        </td>
+        <th scope="row" rowspan="2">경기 북부</th>
+        <td>
+          <a href="tel:031-8030-4451">031-8030-4451</a>
+        </td>
       </tr>
       <tr>
-        <th scope="row">대전</th>
-        <td><a href="tel:042-821-7930">042-821-7930</a></td>
-        <th scope="row">울산</th>
-        <td><a href="tel:052-256-5322">052-256-5322</a></td>
+        <td class="info">인천시 보건환경연구원</td>
+        <td class="info">경기도 동물보호과</td>
       </tr>
       <tr>
-        <th scope="row">충북</th>
-        <td><a href="tel:043-249-1455">043-249-1455</a></td>
-        <th scope="row">경북</th>
-        <td><a href="tel:054-840-8251">054-840-8251</a></td>
+        <th scope="row" rowspan="2">부산</th>
+        <td>
+          <a href="tel:051-209-2091">051-209-2091</a>
+        </td>
+        <th scope="row" rowspan="2">광주</th>
+        <td>
+          <a href="tel:062-613-6651">062-613-6651</a>
+        </td>
       </tr>
       <tr>
-        <th scope="row">충남</th>
-        <td><a href="tel:041-334-1666">041-334-1666</a></td>
-        <th scope="row">경남</th>
-        <td><a href="tel:055-754-9575">055-754-9575</a></td>
+        <td class="info">낙동강 에코센터</td>
+        <td class="info">광주시 보건환경연구원</td>
       </tr>
       <tr>
-        <th scope="row">전북</th>
-        <td><a href="tel:063-850-0983">063-850-0983</a></td>
-        <th scope="row">강원</th>
-        <td><a href="tel:033-250-7504">033-250-7504</a></td>
+        <th scope="row" rowspan="2">대전</th>
+        <td>
+          <a href="tel:042-821-7930">042-821-7930</a>
+        </td>
+        <th scope="row" rowspan="2">울산</th>
+        <td>
+          <a href="tel:052-256-5322">052-256-5322</a>
+        </td>
       </tr>
       <tr>
-        <th scope="row">전남</th>
-        <td><a href="tel:061-749-4800">061-749-4800</a></td>
-        <th scope="row">제주</th>
-        <td><a href="tel:064-752-9982">064-752-9982</a></td>
+        <td class="info">충남대학교 수의과대학</td>
+        <td class="info">울산시설관리공단</td>
+      </tr>
+      <tr>
+        <th scope="row" rowspan="2">충북</th>
+        <td>
+          <a href="tel:043-249-1455">043-249-1455</a>
+        </td>
+        <th scope="row" rowspan="2">경북</th>
+        <td>
+          <a href="tel:054-840-8251">054-840-8251</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="info">충북대학교 수의과대학</td>
+        <td class="info">경상북도 산림자원개발원</td>
+      </tr>
+      <tr>
+        <th scope="row" rowspan="2">충남</th>
+        <td>
+          <a href="tel:041-334-1666">041-334-1666</a>
+        </td>
+        <th scope="row" rowspan="2">경남</th>
+        <td>
+          <a href="tel:055-754-9575">055-754-9575</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="info">공주대학교 산학협력단</td>
+        <td class="info">경상대학교 수의과대학</td>
+      </tr>
+      <tr>
+        <th scope="row" rowspan="2">전북</th>
+        <td>
+          <a href="tel:063-850-0983">063-850-0983</a>
+        </td>
+        <th scope="row" rowspan="2">강원</th>
+        <td>
+          <a href="tel:033-250-7504">033-250-7504</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="info">전북대학교 수의과대학</td>
+        <td class="info">강원대학교 수의과대학</td>
+      </tr>
+      <tr>
+        <th scope="row" rowspan="2">전남</th>
+        <td>
+          <a href="tel:061-749-4800">061-749-4800</a>
+        </td>
+        <th scope="row" rowspan="2">제주</th>
+        <td>
+          <a href="tel:064-752-9982">064-752-9982</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="info">순천시 동물자원과</td>
+        <td class="info">제주대학교 수의과대학</td>
       </tr>
       <tr>
         <th scope="row" colspan="2">
@@ -235,7 +321,7 @@
     <strong class="txt">- 크롬 브라우저</strong>
     우측 상단 더보기 메뉴(... 아이콘) <span class="txt_gt">&gt;</span> 홈 화면에 추가
 
-    <strong class="txt emph"># 홈 화면에 추가 항목이 안보일 경우</strong>
+    <strong class="txt emph"># &lsquo;홈 화면에 추가&rsquo; 항목이 안보일 경우</strong>
     <p class="txt_more">아래 버튼을 클릭하여 <strong>주소를 복사</strong>한 뒤, <strong>IOS의 사파리</strong> 또는 <strong>삼성인터넷에</strong> 주소를 붙여넣어서 위에 설명된 방법으로 홈 화면에 추가해 주세요.</p>
     <button type="button" class="btn_url" data-url="https://jude-ui.github.io/rescue/">URL 복사</button>
   </div>

@@ -50,8 +50,8 @@
     .wrap_map{position: relative;margin-bottom: 10px;aspect-ratio: 16/12}
     #map{position: absolute;top:0;left: 0;width: 100%;height: 100%;border:1px solid #ddd;box-sizing: border-box}
     .txt_address{margin:5px 0;font-size: 18px;line-height: 23px;color:#000}
-    .tit{display: block;font-size: 18px;line-height: 23px;color:#000}
-    .tit ~ .tit{padding-top: 20px}
+    .tit{display: block;padding-top: 10px;font-size: 18px;line-height: 23px;color:#000}
+    .tit ~ .tit{padding-top: 40px}
     .list_road{padding-top: 10px}
     .list_road li{font-size: 15px;line-height: 20px;color:#242424}
     .list_road li + li{padding-top: 10px}
@@ -91,11 +91,7 @@
 </head>
 <body>
   <h1 class="tit_load">동물 로드킬 신고하기</h1>
-  <div class="txt_more">지도상 클릭한 곳의 주소를 확인할 수 있습니다.<br>건물이 아닌 곳은 도로명 주소가 나오지 않고 지번주소만 나옵니다.</div>
-  <div class="wrap_map">
-    <div id="map"></div>
-  </div>
-
+  <div class="txt_more">지도를 클릭하여 사고 지점 주소 확인하고 신고해 주세요.</div>
   <div class="txt_caution">
     위치 설정을 허용하지 않으면 지도가 출력되지 않을 수 있습니다.<br>
     현재 사용하는 앱의 GPS를 활성화 해주세요.
@@ -104,6 +100,10 @@
     <a href="ios"># IOS 위치 설정</a> / <a href="android"># 안드로이드 위치 설정</a>
   </div>
   
+  <div class="wrap_map">
+    <div id="map"></div>
+  </div>
+  <div class="txt_more">지도상 클릭한 곳의 주소를 확인할 수 있습니다.<br>건물이 아닌 곳은 도로명 주소가 나오지 않고 지번주소만 나옵니다.</div>
   <strong class="tit"># 현재 위치</strong>
 
   <table class="tbl_comm">

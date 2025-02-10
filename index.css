@@ -78,10 +78,10 @@ footer{padding:40px 0 50px}
 .layer_comm .layer_head .tit_layer{display: block;font-size: 18px;line-height: 23px;color:#fff}
 .list_sns{display: flex;justify-content: center;gap:10px;padding:30px 20px}
 .list_sns a{display: block;overflow: hidden;width: 40px;height: 40px;border-radius: 50%;font-size: 1px;line-height: 0;color: transparent;background: 0 0 no-repeat;background-size: cover}
-.list_sns .ico_sns1{background-image: url(../images/ico_sns1.png)}
-.list_sns .ico_sns2{background-image: url(../images/ico_sns2.png)}
-.list_sns .ico_sns3{background-image: url(../images/ico_sns3.png)}
-.list_sns .ico_sns4{background-image: url(../images/ico_sns4.png)}
+.list_sns .ico_sns1{background-image: url(./images/ico_sns1.png)}
+.list_sns .ico_sns2{background-image: url(./images/ico_sns2.png)}
+.list_sns .ico_sns3{background-image: url(./images/ico_sns3.png)}
+.list_sns .ico_sns4{background-image: url(./images/ico_sns4.png)}
 
 .layer_foot .btn_close{overflow: hidden;position: absolute;top:0;right: 0;width: 44px;height: 44px;font-size: 1px;line-height: 0;color:transparent}
 .layer_foot .btn_close:before, .layer_foot .btn_close:after{position: absolute;top:20px;left: 9px; width: 26px;height: 4px;border-radius: 2px;background-color: #fff;transform: rotate(45deg);content: ''}

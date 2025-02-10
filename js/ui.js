@@ -28,8 +28,12 @@
       objectType: 'feed',
       content: {
         title: $.trim($('meta[property="og:title"]').attr('content')),
+        description: $.trim($('meta[property="og:description"]').attr('content')),
         imageUrl: $.trim($('meta[property="og:image"]').attr('content')),
-        link: {mobileWebUrl: $.trim($('meta[property="og:url"]').attr('content')), webUrl: $.trim($('meta[property="og:url"]').attr('content'))}
+        link: {
+          mobileWebUrl: $.trim($('meta[property="og:url"]').attr('content')),
+          webUrl: $.trim($('meta[property="og:url"]').attr('content'))
+        }
       }
     });
   })

@@ -4,246 +4,291 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-  <meta name="format-detection" content="telephone=no"><!-- 아이폰에서 일반숫자나, Datetime 등의 타입 전화번호 인식 방지 -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="robots" content="index, follow">
+
+  <link rel="shortcut icon" href="./images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="./images/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="./images/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="./images/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="./images/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="./images/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="./images/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="./images/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="./images/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="./images/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="야생동물 로드킬 신고" />
+  <meta property="og:title" content="야생동물 로드킬 신고" />
+  <meta property="og:description" content="빠른 로드킬 신고를 위한 정보를 모아둔 페이지 입니다." />
+  <meta property="og:image" content="./images/apple-icon-180x180.png" />
+  <meta property="og:url" content="https://jude-ui.github.io/rescue/" />
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:title" content="야생동물 로드킬 신고" />
+  <meta property="twitter:description" content="빠른 로드킬 신고를 위한 정보를 모아둔 페이지 입니다." />
+  <meta property="twitter:image" content="./images/apple-icon-180x180.png" />
+  <meta property="twitter:url" content="https://jude-ui.github.io/rescue/" />
+  
   <title>야생동물 로드킬 신고하기</title>
-  <style>
-    /* rw reset */
-    body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0}
-    fieldset,img{border: 0 none}
-    dl,ul,ol,menu,li{list-style:none}
-    blockquote,q{quotes:none}
-    blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
-    input,select,textarea,button{vertical-align:middle;font-size:100%}
-    input::-ms-clear{display:none}
-    button{border:0 none;background-color:transparent;cursor:pointer}
-    table{border-collapse:collapse;border-spacing:0}
-    body{background:#fff;-webkit-text-size-adjust:none}
-    input:checked[type='checkbox']{background-color:#666;-webkit-appearance:checkbox}
-    input[type='text'],input[type='password'],input[type='submit'],input[type='search'],input[type='tel'],input[type='email'],html input[type='button'],input[type='reset']{-webkit-appearance:none;border-radius:0}
-    input[type='search']::-webkit-search-cancel-button{-webkit-appearance:none}
-    input[type='date']{-webkit-appearance:none;appearance:none;background:#fff}
-    input[type='date']::-webkit-date-and-time-value{text-align:left}
-    input[type='date']::before{width:100%;content:attr(data-placeholder);color:rgba(36,36,36,.38)}
-    input[type='date'][value]::before,input[type='date']:focus::before,input[type='date']:valid::before{content:normal}
-    body,th,td,input,select,textarea,button{font-size:12px;line-height:1.5;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Roboto', 'Malgun Gothic', '맑은 고딕', sans-serif;color:#333}
-    a{color:#333;text-decoration:none}
-    a:active, a:hover{text-decoration:none}
-    a:active{background-color:transparent}
-    address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
-    main{display:block}
-
-    /* global */
-    .direct-link{position:absolute;top:-1px;left:0;z-index:9999;height:1px} /* 바로가기 */
-    .direct-link a{position:absolute;top:-999px;padding:5px 10px;font-weight:bold;color:#fff;background:#333;text-decoration:none;white-space:nowrap}
-    .direct-link a:focus{top:0}
-    .ir_pm{display:block;overflow:hidden;font-size:1px;line-height:0;color:transparent}
-    .ir_wa{display:block;overflow:hidden;position:relative;z-index:-1;width:100%;height:100%}
-    .ir_caption{overflow:hidden;width:1px;font-size:1px;line-height:0;text-indent:-9999px}
-    .screen_out{overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px}
-    .blind{position:absolute;clip-path:rect(0 0 0 0);width:1px;height:1px;margin:-1px;overflow:hidden}
-    .show{display:block}
-    .hide{display:none}
-
-    body{padding:16px}
-    .tc{text-align: center}
-    .tit_load{margin-bottom: 5px;font-size: 20px;line-height: 25px;color:#000}
-    .wrap_map{position: relative;margin-bottom: 10px;aspect-ratio: 16/12}
-    #map{position: absolute;top:0;left: 0;width: 100%;height: 100%;border:1px solid #ddd;box-sizing: border-box}
-    .txt_address{margin:5px 0;font-size: 18px;line-height: 23px;color:#000}
-    .tit{display: block;padding-top: 10px;font-size: 18px;line-height: 23px;color:#000}
-    .tit ~ .tit{padding-top: 40px}
-    .list_road{padding-top: 10px}
-    .list_road li{font-size: 15px;line-height: 20px;color:#242424}
-    .list_road li + li{padding-top: 10px}
-    .list_road a{font-weight: 700;color:#325ee4;text-decoration: underline}
-    .list_road span{font-size: 0.8em}
-    
-    .tbl_comm{width:100%;max-width: 400px;margin-top: 5px;border-collapse: collapse;border-spacing: 0;table-layout: fixed}
-    .tbl_comm th, .tbl_comm td{height: 24px;padding:5px 8px 4px;border-top: 1px solid #ddd;border-right: 1px solid #ddd;font-size: 14px;line-height: 17px;color:#000;word-break: keep-all}
-    .tbl_comm td:last-child{border-right: 0}
-    .tbl_comm tr:last-child th, .tbl_comm tr:last-child td{border-bottom: 1px solid #ddd}
-
-    .tbl_comm th{background-color: #fafafa}
-    .tbl_comm td{font-size: 14px;color:#000}
-    .tbl_comm a{font-weight: 700;color:#0d7b29;text-decoration: underline;text-underline-offset: 2px}
-
-    .link_env{display: inline-block;padding:5px 0;font-size: 12px;line-height: 15px;color:#333;vertical-align: top;text-decoration: underline;word-break: keep-all;text-underline-offset: 2px}
-    .txt_ask{margin:40px 0 50px;font-size: 12px;line-height: 15px;color:#333;word-break: keep-all}
-    .txt_ask a{font-weight: 700}
-    .txt_caution{display: block;font-weight: 700;font-size: 12px;line-height: 15px;color:#d02222;background-color: #fff;}
-    .txt_info{padding: 2px 0 10px}
-    .txt_info a{font-weight: 700;font-size: 12px;line-height: 13px;color:royalblue;text-decoration: underline;text-underline-offset: 2px}
-    .info_marker{min-height: 23px;padding:4px 7px;white-space: nowrap;box-sizing: border-box}
-    .info_marker .address{font-size: 12px;line-height: 15px;color:#000}
-    .info_marker .address:only-child{line-height: 19px}
-    .txt_desc{padding-top: 4px;font-size: 14px;line-height: 19px;color:#1a1a1a}
-    .txt_desc .txt{display: block}
-    .txt_desc .txt ~ .txt{padding-top: 15px}
-    .txt_gt{font-weight: 700;color:red}
-    .txt_more{margin-top: 5px;padding-bottom: 5px;font-size: 12px;line-height: 15px;color:#777}
-    .btn_url{padding:4px 10px;border-radius: 5px;font-size: 12px;line-height: 17px;color:#fff;background-color: #4561b8}
-    .emph{color:orangered}
-
-    @media only screen and (min-width: 1024px) {
-      .wrap_map{aspect-ratio: auto;height:400px}
-    }
-  </style>
+  <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-  <h1 class="tit_load">동물 로드킬 신고하기</h1>
-  <div class="txt_more">지도를 클릭하여 사고 지점 주소 확인하고 신고해 주세요.</div>
-  <div class="txt_caution">
-    위치 설정을 허용하지 않으면 지도가 출력되지 않을 수 있습니다.<br>
-    현재 사용하는 앱의 GPS를 활성화 해주세요.
-  </div>
-  <div class="txt_info">
-    <a href="ios"># IOS 위치 설정</a> / <a href="android"># 안드로이드 위치 설정</a>
-  </div>
+  <header class="head">
+    <h1 class="tit_load">동물 로드킬 신고하기</h1>
+    <button type="button" class="btn_share" data-open-layer="layerSns">
+      <span class="ico_share">공유하기</span>
+    </button>
+    <!-- layer_comm -->
+    <div id="layerSns" class="layer_comm" data-close-layer>
+      <div class="inner_layer" tabindex="0">
+        <div class="layer_head">
+          <strong class="tit_layer">SNS 공유하기</strong>
+        </div>
+        <div class="layer_body">
+          <ul class="list_sns">
+            <li><a href="#none" class="ico_sns1">페이스북 공유하기</a></li>
+            <li><a href="#none" class="ico_sns2">X 공유하기</a></li>
+            <li><a href="#none" class="ico_sns3">밴드 공유하기</a></li>
+            <li><a href="#none" class="ico_sns4">카카오톡 공유하기</a></li>
+          </ul>
+        </div>
+        <div class="layer_foot">
+          <button type="button" class="btn_close" data-close-layer>닫기</button>
+        </div>
+      </div>
+    </div>
+    <!-- // layer_comm -->
+  </header>
+  <main>
+    <div class="txt_more txt_more2">사고 지점을 지도상에서 클릭하면 주소를 확인할 수 있습니다.</div>
+    <div class="txt_caution">
+      위치 설정을 허용하지 않으면 지도가 출력되지 않을 수 있습니다.<br>
+      현재 사용하는 앱의 GPS를 활성화 해주세요.
+    </div>
+    <div class="txt_info">
+      <a href="ios"># IOS 위치 설정</a> / <a href="android"># 안드로이드 위치 설정</a>
+    </div>
+    
+    <div class="wrap_map">
+      <div id="map"></div>
+    </div>
+    <div class="txt_more">건물이 아닌 곳은 도로명 주소가 나오지 않고 지번주소만 나옵니다.</div>
+    <strong class="tit"># 현재 위치</strong>
   
-  <div class="wrap_map">
-    <div id="map"></div>
-  </div>
-  <div class="txt_more">지도상 클릭한 곳의 주소를 확인할 수 있습니다.<br>건물이 아닌 곳은 도로명 주소가 나오지 않고 지번주소만 나옵니다.</div>
-  <strong class="tit"># 현재 위치</strong>
+    <table class="tbl_comm">
+      <caption class="blind">현재 위치에 대한 주소 정보 표</caption>
+      <colgroup>
+        <col style="width:25%">
+        <col>
+      </colgroup>
+      <tbody>
+        <tr>
+          <th scope="row">도로명 주소</th>
+          <td id="road_address">...</td>
+        </tr>
+        <tr>
+          <th scope="row">지번 주소</th>
+          <td id="address">...</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <strong class="tit"># 동물이 로드킬로 죽었을 때</strong>
+    <ol class="list_road">
+      <li>
+        <strong>1. 고속도로일 경우</strong><br>
+        <a href="tel:1588-2504">1588-2504</a>
+        <span>(한국도로공사)</span>
+      </li>
+      <li>
+        <strong>2. 국도나 지방도로일 경우</strong><br>
+        - 국번없이 <a href="tel:128">128</a> <span>(환경 신문고)</span><br>
+        - 국번없이 <a href="tel:120">120</a> <span>(다산 콜센터)</span>
+      </li>
+    </ol>
+  
+    <strong class="tit"># 동물이 살아 있어서 구조가 필요할 시</strong>
+    <p class="txt_more">환경부 지정 전국 야생동물 구조관리센터</p>
+    <table class="tbl_comm">
+      <caption class="blind">환경부 지정 야생동물 구조관리센터</caption>
+      <colgroup>
+        <col style="width:46px">
+        <col>
+        <col style="width:46px">
+        <col>
+      </colgroup>
+      <tbody>
+        <tr>
+          <th scope="row" rowspan="2">서울</th>
+          <td>
+            <a href="tel:02-880-8659">02-880-8659</a>
+          </td>
+          <th scope="row" rowspan="2">경기</th>
+          <td>
+            <a href="tel:031-8008-6212">031-8008-6212</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="info">서울대학교 수의과대학</td>
+          <td class="info">경기도 동물보호과</td>
+        </tr>
+        <tr>
+          <th scope="row" rowspan="2">인천</th>
+          <td>
+            <a href="tel:032-858-9702">032-858-9702</a>
+          </td>
+          <th scope="row" rowspan="2">경기 북부</th>
+          <td>
+            <a href="tel:031-8030-4451">031-8030-4451</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="info">인천시 보건환경연구원</td>
+          <td class="info">경기도 동물보호과</td>
+        </tr>
+        <tr>
+          <th scope="row" rowspan="2">부산</th>
+          <td>
+            <a href="tel:051-209-2091">051-209-2091</a>
+          </td>
+          <th scope="row" rowspan="2">광주</th>
+          <td>
+            <a href="tel:062-613-6651">062-613-6651</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="info">낙동강 에코센터</td>
+          <td class="info">광주시 보건환경연구원</td>
+        </tr>
+        <tr>
+          <th scope="row" rowspan="2">대전</th>
+          <td>
+            <a href="tel:042-821-7930">042-821-7930</a>
+          </td>
+          <th scope="row" rowspan="2">울산</th>
+          <td>
+            <a href="tel:052-256-5322">052-256-5322</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="info">충남대학교 수의과대학</td>
+          <td class="info">울산시설관리공단</td>
+        </tr>
+        <tr>
+          <th scope="row" rowspan="2">충북</th>
+          <td>
+            <a href="tel:043-249-1455">043-249-1455</a>
+          </td>
+          <th scope="row" rowspan="2">경북</th>
+          <td>
+            <a href="tel:054-840-8251">054-840-8251</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="info">충북대학교 수의과대학</td>
+          <td class="info">경상북도 산림자원개발원</td>
+        </tr>
+        <tr>
+          <th scope="row" rowspan="2">충남</th>
+          <td>
+            <a href="tel:041-334-1666">041-334-1666</a>
+          </td>
+          <th scope="row" rowspan="2">경남</th>
+          <td>
+            <a href="tel:055-754-9575">055-754-9575</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="info">공주대학교 산학협력단</td>
+          <td class="info">경상대학교 수의과대학</td>
+        </tr>
+        <tr>
+          <th scope="row" rowspan="2">전북</th>
+          <td>
+            <a href="tel:063-850-0983">063-850-0983</a>
+          </td>
+          <th scope="row" rowspan="2">강원</th>
+          <td>
+            <a href="tel:033-250-7504">033-250-7504</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="info">전북대학교 수의과대학</td>
+          <td class="info">강원대학교 수의과대학</td>
+        </tr>
+        <tr>
+          <th scope="row" rowspan="2">전남</th>
+          <td>
+            <a href="tel:061-749-4800">061-749-4800</a>
+          </td>
+          <th scope="row" rowspan="2">제주</th>
+          <td>
+            <a href="tel:064-752-9982">064-752-9982</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="info">순천시 동물자원과</td>
+          <td class="info">제주대학교 수의과대학</td>
+        </tr>
+        <tr>
+          <th scope="row" colspan="2">
+            야생동물의료센터<br>
+            (전남 구례군)
+          </th>
+          <td colspan="2" class="tc"><a href="tel:061-783-9585">061-783-9585</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="https://www.me.go.kr/home/web/board/read.do?pagerOffset=0&maxPageItems=10&maxIndexPages=10&searchKey=title&searchValue=%EC%95%BC%EC%83%9D%EB%8F%99%EB%AC%BC+%EA%B5%AC%EC%A1%B0%EA%B4%80%EB%A6%AC%EC%84%BC%ED%84%B0&menuId=&orgCd=&boardId=1582080&boardMasterId=39&boardCategoryId=&decorator=" target="_blank" class="link_env">
+      환경부 전국 야생동물 구조관리센터 지정현황<br>
+      (2023년 기준 PC에서 접속 가능)
+    </a>
+  
+    <strong id="ios" class="tit"># IOS 위치 설정</strong>
+    <div class="txt_desc">
+      설정 <span class="txt_gt">&gt;</span> 개인정보 보호 및 보안 <span class="txt_gt">&gt;</span> 위치 서비스 <span class="txt_gt">&gt;</span> [해당 앱(카카오톡 or 카카오워크 등)] <span class="txt_gt">&gt;</span> &lsquo;앱을 사용하는 동안&rsquo;, &lsquo;정확한 위치 사용&rsquo; 선택
+    </div>
+  
+    <strong id="android" class="tit"># 안드로이드 위치 설정</strong>
+    <div class="txt_desc">
+      설정 <span class="txt_gt">&gt;</span> 위치 <span class="txt_gt">&gt;</span> 앱 권한 <span class="txt_gt">&gt;</span> [해당 앱(카카오톡 or 카카오워크 등)] <span class="txt_gt">&gt;</span> &lsquo;앱 사용중에만 허용&rsquo;, &lsquo;정확한 위치 사용&rsquo; 선택
+    </div>
+  
+    <strong class="tit"># 모바일 홈화면에 바로가기 아이콘 만들기</strong>
+    <p class="txt_more">차에서 위치를 놓치지 않도록 홈 화면에 아이콘을 추가해 보세요.</p>
+    <div class="txt_desc">
+      <strong class="txt">- IOS 사파리</strong>
+      하단 공유하기 버튼 <span class="txt_gt">&gt;</span> 홈 화면에 추가
+  
+      <strong class="txt">- 안드로이드 삼성인터넷</strong>
+      우측 하단 더보기 메뉴 <span class="txt_gt">&gt;</span> 현재 페이지에 추가 <span class="txt_gt">&gt;</span> 홈 화면
+  
+      <strong class="txt">- 네이버 앱</strong>
+      우측 하단 더보기 메뉴 <span class="txt_gt">&gt;</span> 홈 화면에 추가
+  
+      <strong class="txt">- 크롬 브라우저</strong>
+      우측 상단 더보기 메뉴(... 아이콘) <span class="txt_gt">&gt;</span> 홈 화면에 추가
+  
+      <strong class="txt emph"># &lsquo;홈 화면에 추가&rsquo; 항목이 안보일 경우</strong>
+      <p class="txt_more">아래 버튼을 클릭하여 <strong>주소를 복사</strong>한 뒤, <strong>IOS의 사파리</strong> 또는 <strong>삼성인터넷에</strong> 주소를 붙여넣어서 위에 설명된 방법으로 홈 화면에 추가해 주세요.</p>
+      <button type="button" class="btn_url" data-url="https://jude-ui.github.io/rescue/">URL 복사</button>
+    </div>
+  </main>
 
-  <table class="tbl_comm">
-    <caption class="ir_caption">동물 보호센터</caption>
-    <colgroup>
-      <col style="width:25%">
-      <col>
-    </colgroup>
-    <tbody>
-      <tr>
-        <th scope="row">도로명 주소</th>
-        <td id="road_address">...</td>
-      </tr>
-      <tr>
-        <th scope="row">지번 주소</th>
-        <td id="address">...</td>
-      </tr>
-    </tbody>
-  </table>
 
-  <strong class="tit"># 동물이 로드킬로 죽었을 때</strong>
-  <ol class="list_road">
-    <li>
-      <strong>1. 고속도로일 경우</strong><br>
-      <a href="tel:1588-2504">1588-2504</a>
-      <span>(한국도로공사)</span>
-    </li>
-    <li>
-      <strong>2. 국도나 지방도로일 경우</strong><br>
-      - 국번없이 <a href="tel:128">128</a> <span>(환경 신문고)</span><br>
-      - 국번없이 <a href="tel:120">120</a> <span>(다산 콜센터)</span>
-    </li>
-  </ol>
-
-  <strong class="tit"># 동물이 살아 있어서 구조가 필요할 시</strong>
-  <table class="tbl_comm">
-    <caption class="ir_caption">야생동물 구조관리센터</caption>
-    <colgroup>
-      <col style="width:15%">
-      <col>
-      <col style="width:15%">
-      <col>
-    </colgroup>
-    <tbody>
-      <tr>
-        <th scope="row">서울</th>
-        <td><a href="tel:02-880-8659">02-880-8659</a></td>
-        <th scope="row">경기</th>
-        <td><a href="tel:031-8008-6212">031-8008-6212</a></td>
-      </tr>
-      <tr>
-        <th scope="row">인천</th>
-        <td><a href="tel:032-858-9702">032-858-9702</a></td>
-        <th scope="row">경기 북부</th>
-        <td><a href="tel:031-8030-4451">031-8030-4451</a></td>
-      </tr>
-      <tr>
-        <th scope="row">부산</th>
-        <td><a href="tel:051-209-2091">051-209-2091</a></td>
-        <th scope="row">광주</th>
-        <td><a href="tel:062-613-6651">062-613-6651</a></td>
-      </tr>
-      <tr>
-        <th scope="row">대전</th>
-        <td><a href="tel:042-821-7930">042-821-7930</a></td>
-        <th scope="row">울산</th>
-        <td><a href="tel:052-256-5322">052-256-5322</a></td>
-      </tr>
-      <tr>
-        <th scope="row">충북</th>
-        <td><a href="tel:043-249-1455">043-249-1455</a></td>
-        <th scope="row">경북</th>
-        <td><a href="tel:054-840-8251">054-840-8251</a></td>
-      </tr>
-      <tr>
-        <th scope="row">충남</th>
-        <td><a href="tel:041-334-1666">041-334-1666</a></td>
-        <th scope="row">경남</th>
-        <td><a href="tel:055-754-9575">055-754-9575</a></td>
-      </tr>
-      <tr>
-        <th scope="row">전북</th>
-        <td><a href="tel:063-850-0983">063-850-0983</a></td>
-        <th scope="row">강원</th>
-        <td><a href="tel:033-250-7504">033-250-7504</a></td>
-      </tr>
-      <tr>
-        <th scope="row">전남</th>
-        <td><a href="tel:061-749-4800">061-749-4800</a></td>
-        <th scope="row">제주</th>
-        <td><a href="tel:064-752-9982">064-752-9982</a></td>
-      </tr>
-      <tr>
-        <th scope="row" colspan="2">
-          야생동물의료센터<br>
-          (전남 구례군)
-        </th>
-        <td colspan="2" class="tc"><a href="tel:061-783-9585">061-783-9585</a></td>
-      </tr>
-    </tbody>
-  </table>
-  <a href="https://www.me.go.kr/home/web/board/read.do?pagerOffset=0&maxPageItems=10&maxIndexPages=10&searchKey=title&searchValue=%EC%95%BC%EC%83%9D%EB%8F%99%EB%AC%BC+%EA%B5%AC%EC%A1%B0%EA%B4%80%EB%A6%AC%EC%84%BC%ED%84%B0&menuId=&orgCd=&boardId=1582080&boardMasterId=39&boardCategoryId=&decorator=" target="_blank" class="link_env">
-    환경부 전국 야생동물 구조관리센터 지정현황<br>
-    (2023년 기준 PC에서 접속 가능)
-  </a>
-
-  <strong id="ios" class="tit"># IOS 위치 설정</strong>
-  <div class="txt_desc">
-    설정 <span class="txt_gt">&gt;</span> 개인정보 보호 및 보안 <span class="txt_gt">&gt;</span> 위치 서비스 <span class="txt_gt">&gt;</span> [해당 앱(카카오톡 or 카카오워크 등)] <span class="txt_gt">&gt;</span> &lsquo;앱을 사용하는 동안&rsquo;, &lsquo;정확한 위치 사용&rsquo; 선택
-  </div>
-
-  <strong id="android" class="tit"># 안드로이드 위치 설정</strong>
-  <div class="txt_desc">
-    설정 <span class="txt_gt">&gt;</span> 위치 <span class="txt_gt">&gt;</span> 앱 권한 <span class="txt_gt">&gt;</span> [해당 앱(카카오톡 or 카카오워크 등)] <span class="txt_gt">&gt;</span> &lsquo;앱 사용중에만 허용&rsquo;, &lsquo;정확한 위치 사용&rsquo; 선택
-  </div>
-
-  <strong class="tit"># 모바일 홈화면에 바로가기 아이콘 만들기</strong>
-  <p class="txt_more">차에서 위치를 놓치지 않도록 홈 화면에 아이콘을 추가해 보세요.</p>
-  <div class="txt_desc">
-    <strong class="txt">- IOS 사파리</strong>
-    하단 공유하기 버튼 <span class="txt_gt">&gt;</span> 홈 화면에 추가
-
-    <strong class="txt">- 안드로이드 삼성인터넷</strong>
-    우측 하단 더보기 메뉴 <span class="txt_gt">&gt;</span> 현재 페이지에 추가 <span class="txt_gt">&gt;</span> 홈 화면
-
-    <strong class="txt">- 네이버 앱</strong>
-    우측 하단 더보기 메뉴 <span class="txt_gt">&gt;</span> 홈 화면에 추가
-
-    <strong class="txt">- 크롬 브라우저</strong>
-    우측 상단 더보기 메뉴(... 아이콘) <span class="txt_gt">&gt;</span> 홈 화면에 추가
-
-    <strong class="txt emph"># 홈 화면에 추가 항목이 안보일 경우</strong>
-    <p class="txt_more">아래 버튼을 클릭하여 <strong>주소를 복사</strong>한 뒤, <strong>IOS의 사파리</strong> 또는 <strong>삼성인터넷에</strong> 주소를 붙여넣어서 위에 설명된 방법으로 홈 화면에 추가해 주세요.</p>
-    <button type="button" class="btn_url" data-url="https://jude-ui.github.io/rescue/">URL 복사</button>
-  </div>
-
-
-  <p class="txt_ask">틀린정보나 문의사항이 있으면 <a href="mailto:jude.sh@daum.net">jude.sh@daum.net</a> 으로 연락 주세요.</p>
+  <footer>
+    <p class="txt_ask">틀린정보나 문의사항이 있으면 <a href="mailto:jude.sh@daum.net">jude.sh@daum.net</a> 으로 연락 주세요.</p>
+  </footer>
   
   <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=89b0a44e1f81d77a4103cc826a62c52f&&libraries=services"></script>
-  <script src="./ui.js"></script>
+  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" integrity="sha384-DKYJZ8NLiK8MN4/C5P2dtSmLQ4KwPaoqAfyA/DfmEc1VDxu4yyC7wy6K1Hs90nka" crossorigin="anonymous"></script>
+  <script src="./js/jquery-3.5.1.min.js"></script>
+  <script src="./js/ui.js"></script>
 </body>
 </html>

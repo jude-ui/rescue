@@ -2,6 +2,11 @@
 (function () {
   const jsAppKey = '89b0a44e1f81d77a4103cc826a62c52f'
   const restApiKey = '49fe230c6fcd8c55afb8200126317160'
+  const currentUrl = window.location.href
+
+  // 공유하기
+  const boxUrlCopy = document.querySelector('.box_url_copy')
+  const btnUrlCopy = document.querySelector('.btn_url_copy')
   const shareFb = document.querySelector('.ico_sns1')
   const shareX = document.querySelector('.ico_sns2')
   const shareBd = document.querySelector('.ico_sns3')
@@ -38,25 +43,34 @@
     });
   })
   
+  boxUrlCopy.innerHTML = window.location.href
+  btnUrlCopy.addEventListener('click', (e) => {
+    e.preventDefault();
+    urlCopy(currentUrl)
+  })
+  
+  // 하단 url 복사하기
   document.querySelector(".btn_url").addEventListener("click", function () {
-      const url = this.getAttribute("data-url"); // data-url 값 가져오기
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(() => {
-          alert("URL이 복사되었습니다.");
-        }).catch(err => {
-          alert("URL 복사를 실패했습니다. 다시 시도해 주세요.");
-          console.error('복사 실패 : ', err)
-        });
-      } else {
-        const textarea = document.createElement("textarea");
-        textarea.value = url;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textarea);
-        alert("URL이 복사되었습니다.");
-      }
+    urlCopy(currentUrl)
   });
+  function urlCopy(currentUrl) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(currentUrl).then(() => {
+        alert("URL이 복사되었습니다.");
+      }).catch(err => {
+        alert("URL 복사를 실패했습니다. 다시 시도해 주세요.");
+        console.error('복사 실패 : ', err)
+      });
+    } else {
+      const textarea = document.createElement("textarea");
+      textarea.value = currentUrl;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      alert("URL이 복사되었습니다.");
+    }
+  }
   
   document.querySelectorAll('.txt_info a').forEach(link => {
     link.addEventListener('click', function(e) {

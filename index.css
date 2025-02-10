@@ -87,9 +87,8 @@ footer{padding:40px 0 50px}
 .layer_foot .btn_close:before, .layer_foot .btn_close:after{position: absolute;top:20px;left: 9px; width: 26px;height: 4px;border-radius: 2px;background-color: #fff;transform: rotate(45deg);content: ''}
 .layer_foot .btn_close:after{transform: rotate(-45deg)}
 
-[style*="border: 1px solid rgb(118, 129, 168)"]{pointer-events: none}
-[usemap="#daum.maps.Marker.Area:1"]{pointer-events: none}
-[id="daum.maps.Marker.Area:1"]{pointer-events: none}
+div[style*="height: 0"]:has([style*="margin: -39px 0px 0px -14px"]):has([id="daum.maps.Marker.Area:1"]){pointer-events: none}
+
 @media only screen and (min-width: 1024px) {
   .wrap_map{aspect-ratio: auto;height:400px}
 }
